@@ -53,6 +53,7 @@ scale = 0.4
 display.set_font("serif")
 msg_width = display.measure_text(text, scale)
 
+# Main loop
 while True:
     # Pacman ghosts
     play_sequence(ghosts, ghost_sprites, BLACK)
@@ -71,6 +72,7 @@ while True:
     display.set_pen(RED)
     display.set_thickness(1)
 
+    # Set clipping region for text animation
     display.set_clip(14, 0, win_width, 11)
 
     for z in range (msg_width + win_width + 2):
@@ -78,17 +80,15 @@ while True:
         y = win_y
         
         clear_to_colour(BLACK)
+
+        # Draw shadow
         display.set_pen(YELLOW)
         
-        display.text(text, x - 1, y - 1, -1, scale)
-        display.text(text, x, y - 1, -1, scale)
-        display.text(text, x + 1, y - 1, -1, scale)
-        display.text(text, x - 1, y, -1, scale)
-        display.text(text, x + 1, y, -1, scale)
-        display.text(text, x - 1, y + 1, -1, scale)
-        display.text(text, x, y + 1, -1, scale)
-        display.text(text, x + 1, y + 1, -1, scale)
+        for dy in (-1, 0, 1):
+            for dx in (-1, 0, 1):
+                display.text(text, x + dx, y + dy, -1, scale)
 
+        # Draw text
         display.set_pen(RED)
         display.text(text, x, y, -1, scale)
         gu.update(display)
