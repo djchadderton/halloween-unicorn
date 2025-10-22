@@ -1,6 +1,6 @@
-from galactic import GalacticUnicorn
-from picographics import PicoGraphics, DISPLAY_GALACTIC_UNICORN
-from utime import sleep
+from galactic import GalacticUnicorn # type: ignore
+from picographics import PicoGraphics, DISPLAY_GALACTIC_UNICORN # type: ignore
+from utime import sleep # type: ignore
 from pngsprite import PNGSprite
 from sequences import ghosts, bats, pumpkin, pumpkin2
 
