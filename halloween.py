@@ -24,13 +24,13 @@ def clear_to_colour(colour):
     display.clear()
     gu.update(display)
 
-def fadeColor(startR, startG, startB, endR, endG, endB, steps):
+def fadeColor(startR, startG, startB, endR, endG, endB, steps, delay = 0.1):
     for i in range(steps):
         r = startR + (endR - startR) * i // steps
         g = startG + (endG - startG) * i // steps
         b = startB + (endB - startB) * i // steps
         clear_to_colour(display.create_pen(r, g, b))
-        sleep(0.1) # Adjust delay for speed
+        sleep(delay)
 
 def play_sequence(sequence, spritesheet, background):
     for frame in sequence:
