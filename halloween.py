@@ -54,7 +54,7 @@ def clear_to_colour(colour):
     display.clear()
     gu.update(display)
 
-def fadeColor(startR, startG, startB, endR, endG, endB, steps, delay = 0.1):
+def fade_colour(startR, startG, startB, endR, endG, endB, steps, delay = 0.1):
     """Fade the display background colour from a start RGB to an end RGB.
 
     Parameters:
@@ -119,17 +119,15 @@ while True:
     play_sequence(ghosts, ghost_sprites, BLACK)
 
     # Bat flight
-    fadeColor(0, 0, 0, 20, 13, 237, 10)
+    fade_colour(0, 0, 0, 20, 13, 237, 10)
     play_sequence(bats, bat_sprite, SKY)
     clear_to_colour(BLACK)
     sleep(1)
 
     # Pumpkin
-    display.set_clip(0, 0, 13, 11)
     play_sequence(pumpkin, pumpkin_sprite, BLACK)
 
     # Text
-    display.set_pen(RED)
     display.set_thickness(1)
 
     # Set clipping region for text animation
